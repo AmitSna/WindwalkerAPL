@@ -33,8 +33,8 @@ actions+=/touch_of_death,if=target.time_to_die<=9
 # Call the Serenity action list if you're using Serenity and Serenity is available (or you're currently in Serenity)
 actions+=/call_action_list,name=serenity,if=(talent.serenity.enabled&cooldown.serenity.remains<=0)|buff.serenity.up
 # Call the SEF action list if you're using SEF and are currently in SEF or have 2 SEF stacks
-actions+=/call_action_list,name=sef,if=!talent.storm_earth_and_fire.enabled&(buff.storm_earth_and_fire.up|cooldown.storm_earth_and_fire.charges=2)
-# Call the SEF action list if you're using Serenity and:
+actions+=/call_action_list,name=sef,if=!talent.serenity.enabled&(buff.storm_earth_and_fire.up|cooldown.storm_earth_and_fire.charges=2)
+# Call the SEF action list if you're not using Serenity and:
 # - FoF cd <= 12
 # - Chi >= 3
 # - RSK cd >= 1
@@ -50,7 +50,7 @@ actions+=/call_action_list,name=sef,if=!talent.serenity.enabled&cooldown.fists_o
 # OR the target will die within 15 seconds OR ToD is on the target and you have 1 stack of SEF
 actions+=/call_action_list,name=sef,if=!talent.serenity.enabled&!equipped.drinking_horn_cover&&cooldown.fists_of_fury.remains<=6&chi>=3&cooldown.rising_sun_kick.remains<=1|target.time_to_die<=15|cooldown.touch_of_death.remains>112)&cooldown.storm_earth_and_fire.charges=1
 # Call the AoE action list if there are more than 3 enemies
-actions+=/call_action_list,name=aoe,if=active_enemies>3*
+actions+=/call_action_list,name=aoe,if=active_enemies>3
 # Call the ST action list if there are 3 or less enemies
 actions+=/call_action_list,name=st,if=active_enemies<=3
 
